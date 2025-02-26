@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Study Information</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: #34495e;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #4a6b8a;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        
+        .researcher-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        
+        .researcher-card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            margin-bottom: 1rem;
+        }
+        
+        .researcher-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .researcher-image {
+            width: 100%;
+            height: 200px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .researcher-info {
+            padding: 1.5rem;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Updated Timeline Styles */
+        .timeline-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            position: relative;
+        }
+        
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #3498db;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            clear: both;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            right: -12px;
+            top: 20px;
+            background-color: white;
+            border: 4px solid #3498db;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item.left {
+            left: 0;
+        }
+        
+        .timeline-item.right {
+            left: 50%;
+        }
+        
+        .timeline-item.left::after {
+            right: -12px;
+        }
+        
+        .timeline-item.right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-content h3 {
+            margin-top: 0;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline-container::after {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px;
+                padding-right: 20px;
+            }
+            
+            .timeline-item.left::after, 
+            .timeline-item.right::after {
+                left: 8px;
+            }
+            
+            .timeline-item.right {
+                left: 0;
+            }
+            
+            .researcher-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .researcher-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Research Study: [Study Title]</h1>
+        <p>Understanding [brief description of research focus]</p>
+    </header>
+    
+    <nav>
+        <a href="#about">About the Study</a>
+        <a href="#timeline">Study Timeline</a>
+        <a href="#researchers">Meet the Team</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact Us</a>
+    </nav>
+    
+    <div class="container">
+        <section id="about">
+            <h2>About the Study</h2>
+            <p>Welcome to our research study on [research topic]. This study aims to [describe the primary goal of the study in simple terms]. Your participation will help us [explain the broader impact or benefits of the research].</p>
+            
+            <p>This study has been approved by [ethics committee/IRB name] and is funded by [funding source, if applicable].</p>
+            
+            <h3>What's Involved?</h3>
+            <p>Participants in this study will be asked to:</p>
+            <ul>
+                <li>[Activity 1, e.g., "Complete a 30-minute online survey"]</li>
+                <li>[Activity 2, e.g., "Participate in two 45-minute interviews"]</li>
+                <li>[Activity 3, e.g., "Use a provided mobile app for 2 weeks"]</li>
+            </ul>
+            
+            <p>The total time commitment for this study is approximately [total time, e.g., "3 hours over a 2-week period"].</p>
+            
+            <a href="#contact" class="cta-button">I'm Interested in Participating</a>
+        </section>
+        
+        <section id="timeline">
+            <h2>Study Timeline</h2>
+            <p>Here's what you can expect if you choose to participate in our study:</p>
+            
+            <!-- Fixed Timeline Structure -->
+            <div class="timeline-container">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Step 1: [Initial Step]</h3>
+                        <p>[Description of what happens in this step, e.g., "Initial screening survey to determine eligibility"]</p>
+                        <p><strong>Duration:</strong> [Time, e.g., "15 minutes"]</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Step 2: [Second Step]</h3>
+                        <p>[Description of what happens in this step, e.g., "First in-person interview with a researcher"]</p>
+                        <p><strong>Duration:</strong> [Time, e.g., "45 minutes"]</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Step 3: [Third Step]</h3>
+                        <p>[Description of what happens in this step, e.g., "Two-week period of using our mobile application"]</p>
+                        <p><strong>Duration:</strong> [Time, e.g., "10 minutes daily for 14 days"]</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Step 4: [Final Step]</h3>
+                        <p>[Description of what happens in this step, e.g., "Final follow-up interview and debriefing"]</p>
+                        <p><strong>Duration:</strong> [Time, e.g., "30 minutes"]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="researchers">
+            <h2>Meet the Research Team</h2>
+            <p>Our team of dedicated researchers brings a wealth of experience in [relevant field]. We're excited to work with you and answer any questions you might have about the study.</p>
+            
+            <div class="researcher-cards">
+                <div class="researcher-card">
+                    <div class="researcher-image">
+                        <img src="/api/placeholder/200/200" alt="placeholder" />
+                    </div>
+                    <div class="researcher-info">
+                        <h3>Dr. [Principal Investigator]</h3>
+                        <p><strong>Role:</strong> Principal Investigator</p>
+                        <p>[Brief bio highlighting relevant experience and expertise]</p>
+                    </div>
+                </div>
+                
+                <div class="researcher-card">
+                    <div class="researcher-image">
+                        <img src="/api/placeholder/200/200" alt="placeholder" />
+                    </div>
+                    <div class="researcher-info">
+                        <h3>Dr. [Co-Investigator 1]</h3>
+                        <p><strong>Role:</strong> Co-Investigator</p>
+                        <p>[Brief bio highlighting relevant experience and expertise]</p>
+                    </div>
+                </div>
+                
+                <div class="researcher-card">
+                    <div class="researcher-image">
+                        <img src="/api/placeholder/200/200" alt="placeholder" />
+                    </div>
+                    <div class="researcher-info">
+                        <h3>Dr. [Co-Investigator 2]</h3>
+                        <p><strong>Role:</strong> Co-Investigator</p>
+                        <p>[Brief bio highlighting relevant experience and expertise]</p>
+                    </div>
+                </div>
+                
+                <div class="researcher-card">
+                    <div class="researcher-image">
+                        <img src="/api/placeholder/200/200" alt="placeholder" />
+                    </div>
+                    <div class="researcher-info">
+                        <h3>[Postdoctoral Researcher]</h3>
+                        <p><strong>Role:</strong> Postdoctoral Researcher</p>
+                        <p>[Brief bio highlighting relevant experience and expertise]</p>
+                    </div>
+                </div>
+                
+                <div class="researcher-card">
+                    <div class="researcher-image">
+                        <img src="/api/placeholder/200/200" alt="placeholder" />
+                    </div>
+                    <div class="researcher-info">
+                        <h3>[PhD Student 1]</h3>
+                        <p><strong>Role:</strong> PhD Researcher</p>
+                        <p>[Brief bio highlighting relevant experience and expertise]</p>
+                    </div>
+                </div>
+                
+                <div class="researcher-card">
+                    <div class="researcher-image">
+                        <img src="/api/placeholder/200/200" alt="placeholder" />
+                    </div>
+                    <div class="researcher-info">
+                        <h3>[PhD Student 2]</h3>
+                        <p><strong>Role:</strong> PhD Researcher</p>
+                        <p>[Brief bio highlighting relevant experience and expertise]</p>
+                    </div>
+                </div>
+                
+                <div class="researcher-card">
+                    <div class="researcher-image">
+                        <img src="/api/placeholder/200/200" alt="placeholder" />
+                    </div>
+                    <div class="researcher-info">
+                        <h3>[Research Assistant]</h3>
+                        <p><strong>Role:</strong> Research Assistant</p>
+                        <p>[Brief bio highlighting relevant experience and expertise]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            
+            <h3>Will I be compensated for my participation?</h3>
+            <p>[Answer about compensation, e.g., "Participants who complete all study activities will receive a $50 gift card as a token of our appreciation."]</p>
+            
+            <h3>How will my data be protected?</h3>
+            <p>[Brief explanation of data protection measures, e.g., "All data collected will be stored securely and anonymized. Your personal information will never be shared with third parties."]</p>
+            
+            <h3>Can I withdraw from the study?</h3>
+            <p>[Information about withdrawal policy, e.g., "Yes, you can withdraw from the study at any time without penalty. If you choose to withdraw, you can decide whether we can use the data collected up to that point."]</p>
+            
+            <h3>How will the results be used?</h3>
+            <p>[Explanation about how results will be used, e.g., "Results from this study will be published in academic journals and presented at conferences. All published results will be anonymized."]</p>
+            
+            <h3>Do I need any special equipment to participate?</h3>
+            <p>[Information about required equipment, e.g., "You will need a smartphone (iOS or Android) and access to a reliable internet connection."]</p>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions about the study or would like to express interest in participating, please contact us:</p>
+            
+            <p>
+                <strong>Study Coordinator:</strong> [Name]<br>
+                <strong>Email:</strong> [Email address]<br>
+                <strong>Phone:</strong> [Phone number]
+            </p>
+            
+            <p>For questions about your rights as a research participant, please contact:</p>
+            
+            <p>
+                <strong>[IRB/Ethics Committee Name]:</strong><br>
+                <strong>Email:</strong> [Email address]<br>
+                <strong>Phone:</strong> [Phone number]
+            </p>
+            
+            <a href="#" class="cta-button">Sign Up to Participate</a>
+        </section>
+    </div>
+    
+    <footer>
+        <p>© [Year] [University/Research Institution Name]. All rights reserved.</p>
+        <p>This research is [funded by/conducted in partnership with] [funding source/partner organization].</p>
+    </footer>
+</body>
+</html>

@@ -19,6 +19,27 @@
             color: white;
             padding: 2rem;
             text-align: center;
+            position: relative;
+        }
+        
+        .logo {
+            position: absolute;
+            top: 1rem;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-left {
+            left: 1rem;
+        }
+        
+        .logo-right {
+            right: 1rem;
         }
         
         nav {
@@ -215,13 +236,34 @@
             .researcher-card {
                 max-width: 100%;
             }
+            
+            /* Responsive logo positioning */
+            .logo {
+                position: static;
+                margin: 0.5rem auto;
+                display: inline-flex;
+            }
+            
+            .logo-left, .logo-right {
+                margin: 0.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
+        <!-- Left Logo -->
+        <div class="logo logo-left">
+            <img src="Unimelb Logo (1).png" alt="University Logo" />
+        </div>
+        
         <h1>Research Study: [Study Title]</h1>
         <p>Understanding [brief description of research focus]</p>
+        
+        <!-- Right Logo -->
+        <div class="logo logo-right">
+            <img src="AND Lab Logo (1).png" alt="Lab Logo" />
+        </div>
     </header>
     
     <nav>

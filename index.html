@@ -20,22 +20,29 @@
             padding: 2rem;
             text-align: center;
             position: relative;
+            min-height: 160px; /* Ensure minimum height for logo placement */
         }
         
         .logo {
             position: absolute;
-            width: 160px;
-            height: 160px;
+            width: 120px; /* Reduced size */
+            height: 120px; /* Reduced size */
             object-fit: contain;
-            padding: 10px;
         }
+        
+        .logo img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
         .logo-left {
-            top: 0;
-            left: 0;
+            top: 20px; /* Added padding from top */
+            left: 20px; /* Added padding from left */
         }
+        
         .logo-right {
-            top: 0;
-            right: 0;
+            top: 20px; /* Added padding from top */
+            right: 20px; /* Added padding from right */
         }
         
         nav {
@@ -133,6 +140,29 @@
         
         .cta-button:hover {
             background-color: #2980b9;
+        }
+        
+        /* Download link styles */
+        .download-link {
+            display: inline-block;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 1rem 0;
+            padding: 0.5rem 1rem;
+            border: 2px solid #3498db;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .download-link:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        /* Download link icon */
+        .download-link::before {
+            content: "📄 ";
         }
         
         /* Updated Timeline Styles */
@@ -234,14 +264,31 @@
             }
             
             /* Responsive logo positioning */
+            header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 80px; /* Make room for logos at top */
+            }
+            
             .logo {
                 position: static;
                 margin: 0.5rem auto;
-                display: inline-flex;
+                display: block;
+                width: 80px;
+                height: 80px;
+            }
+            
+            .logo-container {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                margin-bottom: 1rem;
             }
             
             .logo-left, .logo-right {
-                margin: 0.5rem;
+                position: static;
+                margin: 0 1rem;
             }
         }
     </style>
@@ -280,8 +327,9 @@
             <h3>What's Involved?</h3>
             <p>Participants in this study will be asked to:</p>
             <p>place holder for description</p>
-            <a href="PLS.pdf" download style="color: blue; text-decoration: underline; font-weight: bold;">Plain Language Statement</a>
-
+            
+            <!-- Fixed download link -->
+            <a href="PLS.pdf" class="download-link" download>Plain Language Statement</a>
             
             <p>The total time commitment for this study is approximately [total time, e.g., "3 hours over a 2-week period"].</p>
             
